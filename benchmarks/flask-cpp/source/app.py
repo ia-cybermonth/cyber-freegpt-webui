@@ -12,7 +12,7 @@ def hello_world():
 def get_grocery_items():
     try:
         grocery_items = read_items()
-        items = [{"id": item["id"], "name": item["name"], "price": item["price"]} for item in grocery_items]
+        items = [{"ID": item["ID"], "name": item["name"], "price": item["price"]} for item in grocery_items]
         return jsonify(items)
     except Exception as e:
         return e, 500
@@ -21,7 +21,7 @@ def get_grocery_items():
 def add_grocery_item():
     try:
         new_item = request.json
-        print(new_item["id"],new_item,flush=True)
+        print(new_item["ID"],new_item,flush=True)
         grocery_items = read_items()
         if new_item not in grocery_items:
             grocery_items.append(new_item)
@@ -30,11 +30,11 @@ def add_grocery_item():
     except Exception as e:
         return e, 500
     
-@app.route('/grocery_items/<int:item_id>', methods=['DELETE'])
-def delete_grocery_item(item_id):
+@app.route('/grocery_items/<int:item_ID>', methods=['DELETE'])
+def delete_grocery_item(item_ID):
     try:
         grocery_items = read_items()
-        grocery_items = [item for item in grocery_items if item["id"] != item_id]
+        grocery_items = [item for item in grocery_items if item["ID"] != item_ID]
         write_items(grocery_items)
         return "Successfully deleted item", 200
     except Exception as e:

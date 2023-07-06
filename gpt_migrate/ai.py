@@ -15,7 +15,7 @@ class AI:
             _ = ChatOpenAI(model_name=model) # check to see if model is available to user
         except Exception as e:
             print(e)
-            self.model_name = "gpt-3.5-turbo"
+            self.model_name = "gpt-4"
     
     def write_code(self, prompt):
         message=[{"role": "user", "content": str(prompt)}] 
