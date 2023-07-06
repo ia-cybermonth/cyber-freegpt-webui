@@ -73,9 +73,9 @@ def main(
     globals = Globals(sourcedir, targetdir, sourcelang, targetlang, sourceentry, source_directory_structure, operating_system, testfiles, sourceport, targetport, guidelines, ai)
 
     typer.echo(typer.style(f"◐ Reading {sourcelang} project from directory '{sourcedir}', with entrypoint '{sourceentry}'.", fg=typer.colors.BLUE))
-    time.sleep(0.3)
+    time.sleep(0.5)
     typer.echo(typer.style(f"◑ Outputting {targetlang} project to directory '{targetdir}'.", fg=typer.colors.BLUE))
-    time.sleep(0.3)
+    time.sleep(0.5)
     typer.echo(typer.style("Source directory structure: \n\n" + source_directory_structure, fg=typer.colors.BLUE))
 
 

@@ -4,7 +4,7 @@ import os
 import openai
 from utils import parse_code_string
 
-openai.api_key = "flag(Putt1ng_53cr3t5_1n_c0mm1t5_15_b4d)" # testing the connection
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 class AI:
     def __init__(self, model="gpt-4-32k", temperature=0.1, max_tokens=10000):
@@ -15,7 +15,7 @@ class AI:
             _ = ChatOpenAI(model_name=model) # check to see if model is available to user
         except Exception as e:
             print(e)
-            self.model_name = "gpt-4"
+            self.model_name = "gpt-3.5-turbo"
     
     def write_code(self, prompt):
         message=[{"role": "user", "content": str(prompt)}] 

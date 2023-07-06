@@ -112,8 +112,8 @@ def parse_code_string(code_string):
     code_triples = []
 
     for section in sections:
-        match = pattern.match(section)
-        if match:
+        result = pattern.match(section)
+        if result:
             filename, language, code = match.groups()
             code_triples.append((section.split("\n```")[0], language.strip(), code.strip()))
     
